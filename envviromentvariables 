@@ -1,0 +1,10 @@
+# forpowershell 
+$env: TF_VAR_aws_key = ""
+$env: TF_VAR_secret_key =   ""
+
+
+
+
+# for linux and MacOS 
+export TF_VAR_aws_access_key = Your_Access_KEy
+export TF_VAR_secret_key =   ""

@@ -52,7 +52,7 @@ resource "aws_subnet" "subnet1"{
 
 #routing#
 
-resource "aws_route_table{
+resource "aws_route_table" {
 
     vcp_id = aws_vpc.vpc.id 
     route {
