@@ -44,3 +44,29 @@ variable "instance_type" {
     default = "t2.micro" 
 
 }
+
+
+variable "company" {
+    type = string  
+    descritpion = "Company name for resource tagging"
+    default = "Globalmantics"
+
+
+}
+
+
+variable "project" {
+    type = string  
+    descritpion = "project name for resource tagging"
+
+
+}
+
+
+variable "billing_code" {
+    type = string  
+    descritpion = "Company name for resource tagging"
+
+
+}
+

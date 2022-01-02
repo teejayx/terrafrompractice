@@ -35,15 +35,18 @@ data "aws_ssm_parameter" "ami" {
 resources "aws_Vpc" "VPC" {
     cirdr_block = "10.0.0/16"
     enable_dns_hostnames = "true"
+    tags = local.common_tags
 }
 
 resource "aws_internet_gateway" "igw" {
     vpc_id = aws_Vpc.Vpc.id
+    tags = local.common_tags
 }
 
 resource "aws_subnet" "subnet1"{
  cirdr_blocks            = var.vpc_cidr_block
  vpc_id                 = aws_Vpc.VPC.id
+ tags = local.common_tags
 }
 
 
@@ -68,6 +71,7 @@ resource "aws_route_table_association" "rta_subnet1"{
 resource "aws_security_group" "nginx-sg" {
     name = "nginx_sg"
     vcp_id = aws_vpc.vpc.id
+    tags = local.common_tags
 }
 
 #http access from anywhere # 
@@ -96,7 +100,7 @@ resource "aws_instance" "nginx1" {
     Instance_sype       = var.instance_type
     subnet_id = aws_subnet.subnet1.id
     vpc_security_group_ids = [aws_security_group.nginx_sg.id]
-
+tags = local.common_tags
 
 
 user_data = <<EOF
